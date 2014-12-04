@@ -3,9 +3,9 @@
 
 ## by Driftse team !
 
-### composed of :
-### - Benoit Duvignaud
-### - Hugo Riffiod
-### - Gabriel Calmels
-### - Robin Granger
-### - Grégoire Willmann
+composed of :
+- Benoit Duvignaud
+- Hugo Riffiod
+- Gabriel Calmels
+- Robin Granger
+- Grégoire Willmann
