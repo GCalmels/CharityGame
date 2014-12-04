@@ -77,7 +77,7 @@
 				// EarthMesh
 				var geometry   = new THREE.SphereGeometry(0.5, 32, 32)
 				var material  = new THREE.MeshPhongMaterial()
-				material.map = THREE.ImageUtils.loadTexture('earthmap1k.jpg')
+				material.map = THREE.ImageUtils.loadTexture('earthTexture.jpg')
 				earthMesh = new THREE.Mesh(geometry, material)
 				
 				scene.add(earthMesh)
@@ -135,8 +135,6 @@
 
 				//camera.position.x += (mouse.x*5 - camera.position.x) * (0.2)
 				camera.position.y += (mouse.y*5 - camera.position.y) * (0.2)
-
-				//console.log(camera.position.x + " " + camera.position.y + " " + camera.position.z);
 
 				console.log(mouse.x)
 				earthMesh.rotation.y += mouse.x/5
