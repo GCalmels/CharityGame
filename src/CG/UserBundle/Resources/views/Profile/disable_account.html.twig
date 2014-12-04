@@ -1,0 +1,7 @@
+{% extends "CGUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'CGUserBundle' %}
+
+{% block fos_user_content %}
+    <p>{{ 'profile.disable.message'|trans() }}</p>
+{% endblock fos_user_content %}

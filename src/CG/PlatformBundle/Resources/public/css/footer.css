@@ -1,0 +1,46 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+
+  padding-top: 10px;
+
+  border-top: solid 1px #eee;
+}
+
+.footer a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.text {
+  margin-left: 30%;
+  padding-bottom: 10px;
+}
+
+.col-md-4::before, .text {
+  /* these are the important styles for the centered element: */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#address {
+  margin: 0;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  .footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

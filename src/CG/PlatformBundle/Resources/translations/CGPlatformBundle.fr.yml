@@ -1,0 +1,13 @@
+cg:
+    page_header: Accueil
+    presentation: > 
+        RMOpportunities est une plate-forme d'achat et de revente de matières premières non 
+        utilisées par et pour les entreprises de la chimie.
+    last_classifieds: Dernières annonces
+    support_error: Votre navigateur ne supporte pas la video
+
+user:
+    profile:
+        classifieds: Mes annonces
+        modify_button: Modifier
+        delete_button: Supprimer

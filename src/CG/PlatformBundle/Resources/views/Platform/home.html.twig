@@ -1,0 +1,27 @@
+{% trans_default_domain 'CGPlatformBundle' %}
+
+{% extends "CGPlatformBundle:Layout:layout.html.twig" %}
+
+{% block title %}{{ parent() }} | {{ 'cg.page_header'|trans }} {% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/cgplatform/css/home.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="page-header">
+	{{ 'cg.presentation'|trans }}
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<video controls poster="{{ asset('bundles/cgplatform/img/test.jpg') }}">
+			<source src="" type="video/mp4">
+			{{ 'cg.support_error'|trans }}
+		</video>
+	</div>
+
+</div>
+
+{% endblock %}

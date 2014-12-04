@@ -1,0 +1,30 @@
+{% extends "CGPlatformBundle:Layout:layout.html.twig" %}
+{% trans_default_domain 'CGUserBundle' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('bundles/cguser/css/login.css') }}">
+{% endblock stylesheets %}
+
+{% block body %}
+{% if error %}
+<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+<div class="container">
+	<form class="form-signin" role="form" action="{{ path("fos_user_security_check") }}" method="post">
+		<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+		<h2 class="form-signin-heading">{{ 'profile.login.connect_message'|trans }}</h2>
+
+		<input class="form-control" placeholder="{{ 'profile.login.username_email'|trans }}" type="text" id="username" name="_username" value="{{ last_username }}" required="required" autofocus/>
+		<input type="password" id="password" class="form-control" placeholder="Password" name="_password" required="required" />
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" id="remember_me" name="_remember_me" value="on" /> {{ 'profile.login.remember_me'|trans }}
+			</label>
+		</div>
+		<button class="btn btn-lg btn-primary btn-block" type="submit" id="_submit" name="_submit" >{{ 'profile.login.connect_button'|trans }}</button>
+		<a href="{{ path('fos_user_resetting_request') }}">{{ 'profile.login.forgot_password'|trans }}</a>
+	</form>
+</div>
+{% endblock body %}

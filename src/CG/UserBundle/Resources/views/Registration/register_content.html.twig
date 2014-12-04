@@ -1,0 +1,56 @@
+{% trans_default_domain 'CGUserBundle' %}
+
+<div class="well">
+    
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+      {# Génération du label username. #}
+      {{ form_label(form.username, 'register.form.username'|trans, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.username) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+      
+      <div class="form-group">
+      {# Génération du label mot de passe. #}
+      {{ form_label(form.plainPassword.first, 'register.form.password'|trans, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.plainPassword.first) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+      
+      <div class="form-group">
+      {# Génération du label vérification du mot de passe. #}
+      {{ form_label(form.plainPassword.second, 'register.form.verification_password'|trans, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.plainPassword.second) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  {{ form_widget(form.saveButton, {'attr': {'class': 'btn btn-primary'},  'label': 'register.form.submit'|trans }) }}
+
+  {# Génération automatique des champs pas encore écrits.
+     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+     et tous les champs cachés (type « hidden »). #}
+  {{ form_rest(form) }}
+  
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+    
+</div>

@@ -1,0 +1,7 @@
+parameters:
+#    rmo_user.example.class: RMO\UserBundle\Example
+
+services:
+#    rmo_user.example:
+#        class: %rmo_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

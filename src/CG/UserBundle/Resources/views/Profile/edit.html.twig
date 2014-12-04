@@ -1,0 +1,10 @@
+{% extends "CGUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+{% include "CGUserBundle:Profile:edit_content.html.twig" %}
+{% endblock fos_user_content %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="{{ asset('bundles/cguser/js/edit_profile_form_validator.js') }}"></script>
+{% endblock javascripts %}

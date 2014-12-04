@@ -1,0 +1,14 @@
+# Profile
+register:
+    page_title: Inscription
+    form:
+        username: Company
+        email: Adresse email du contact
+        contact_name: Nom du contact
+        phone: Numéro de téléphone du contact
+        address: Adresse de l'entreprise
+        password: Mot de passe 
+        verification_password: Retaper le mot de passe
+        submit: S'inscrire
+    
+    
