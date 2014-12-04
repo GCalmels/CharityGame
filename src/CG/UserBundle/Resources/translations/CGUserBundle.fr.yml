@@ -2,26 +2,19 @@
 register:
     page_title: Inscription
     form:
-        username: Nom de l'entreprise
-        email: Adresse email du contact
-        contact_name: Nom du contact
-        phone: Numéro de téléphone du contact
-        address: Adresse de l'entreprise
+        username: Pseudo
+        email: Adresse email
         password: Mot de passe 
         verification_password: Retaper le mot de passe
         submit: S'inscrire
 
 profile:
     show:
-        username: Nom de l'entreprise
-        email: Adresse email du contact
-        contact_name: Nom du contact
-        phone: Numéro de téléphone du contact
-        address: Adresse de l'entreprise
+        email: Adresse email
+        username: Pseudo
         edit: Modifier les informations
         change_password: Changer le mot de passe
         change_preferences: Changer les préférences
-        user_classifieds: Mes annonces
         disable: Désactiver votre compte
     edit:
         submit: Enregistrer les modifications
@@ -29,11 +22,9 @@ profile:
         password: Mot de passe actuel
         new_password: Nouveau mot de passe
         second_password: Retaper le nouveau mot de passe
-    change_preferences:
-        title: Mes préférences
     login:
         connect_message: Connectez-vous
-        username_email: Nom ou email de l'entreprise
+        username_email: Nom ou email
         remember_me: Se souvenir de moi
         connect_button: Se connecter
         forgot_password: Mot de passe oublié
