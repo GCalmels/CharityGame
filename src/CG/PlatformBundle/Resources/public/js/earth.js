@@ -70,39 +70,39 @@ function onWindowResize()
 document.addEventListener('mousemove', function(event)
 {
 	if(mouse.isClicked)
+		{
+			mouse.x	= (event.clientX / window.innerWidth ) - 0.5
+			mouse.y	= (event.clientY / window.innerHeight) - 0.5
+		}
+	}, false)
+
+	document.addEventListener('mousedown', function(event)
 	{
-		mouse.x	= (event.clientX / window.innerWidth ) - 0.5
-		mouse.y	= (event.clientY / window.innerHeight) - 0.5
-	}
-}, false)
+		mouse.isClicked = true;
+	})
 
-document.addEventListener('mousedown', function(event)
-{
-	mouse.isClicked = true;
-})
-
-document.addEventListener('mouseup', function(event)
-{
-	mouse.isClicked = false;
-	mouse.x = 0;
-	mouse.y = 0;
-})
-
-function animate()
-{
-	requestAnimationFrame( animate );
-	render();
-}
-
-function render()
-{
-	if(!( (mouse.y>0 && earthMesh.rotation.x>1) || (mouse.y<0 && earthMesh.rotation.x<-1) ) )
+	document.addEventListener('mouseup', function(event)
 	{
-		earthMesh.rotation.x += mouse.y/10
+		mouse.isClicked = false;
+		mouse.x = 0;
+		mouse.y = 0;
+	})
+
+	function animate()
+	{
+		requestAnimationFrame( animate );
+		render();
 	}
-	earthMesh.rotation.y += mouse.x/5
 
-	camera.lookAt( scene.position )
+	function render()
+	{
+		if(!( (mouse.y>0 && earthMesh.rotation.x>1) || (mouse.y<0 && earthMesh.rotation.x<-1) ) )
+			{
+				earthMesh.rotation.x += mouse.y/10
+			}
+			earthMesh.rotation.y += mouse.x/5
 
-	renderer.render( scene, camera );
-}
+			camera.lookAt( scene.position )
+
+			renderer.render( scene, camera );
+		}
