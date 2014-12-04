@@ -14,14 +14,16 @@
 	{{ 'cg.presentation'|trans }}
 </div>
 
-<div class="row">
-	<div class="col-md-6">
-		<video controls poster="{{ asset('bundles/cgplatform/img/test.jpg') }}">
-			<source src="" type="video/mp4">
-			{{ 'cg.support_error'|trans }}
-		</video>
+
+	<div class="col-md-8 col-md-offset-2">
+		<canvas id="world_canvas" width="640" height="480"></canvas>
 	</div>
 
-</div>
+
 
 {% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="{{ asset('bundles/cgplatform/js/load_canvas_content.js') }}"></script>
+{% endblock javascripts %}
