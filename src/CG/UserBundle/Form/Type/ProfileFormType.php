@@ -10,7 +10,7 @@ class ProfileFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-                ->add('saveButton', 'submit');
+            $builder->add('saveButton', 'submit');
     }
     
     public function setDefaultOptions(OptionsResolverInterface $resolver)
