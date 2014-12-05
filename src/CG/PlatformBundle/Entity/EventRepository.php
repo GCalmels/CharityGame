@@ -16,5 +16,4 @@ class EventRepository extends EntityRepository
     {
         return $this->findBy(array('enabled' => $enabled), array('id' => 'DESC'));
     }
-
 }

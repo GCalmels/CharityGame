@@ -2,7 +2,9 @@ cg:
     title: Charity Game
     page_header: Accueil
     presentation: >
-        Plate-forme Humanitaire Charity Game !
+        CharityGame est un plateforme humanitaire qui a vu le jour
+        entre le 4 et le 5 décembre 2014 lors de la très célèbre nuit de
+        l'info!
     rewards:
         page_header: Récompenses
 user:

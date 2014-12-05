@@ -9,7 +9,9 @@ var windowHalfY = window.innerHeight / 2;
 var earthMesh;
 
 // Mouse object
-var mouse = {x : 0, y : 0, isClicked: false};
+var mouse = {x : -0.01, y : 0, isClicked: false};
+
+var objects = [];
 
 init();
 animate();
@@ -41,11 +43,20 @@ function init()
 	var manager = new THREE.LoadingManager();
 	var texture = new THREE.Texture();
 
+	var onProgress = function ( xhr ) {
+		console.log('On Progress')
+	};
+
+	var onError = function ( xhr ) {
+		//console.log('An error has occured');
+		console.log(xhr)
+	};
+
 	var loader = new THREE.ImageLoader( manager );
-		loader.load( '../img/earthTexture.jpg', function ( image ) {
-			texture.image = image;
-			texture.needsUpdate = true;
-		} );
+	loader.load( '../img/earthTexture.jpg', function ( image ) {
+		texture.image = image;
+		texture.needsUpdate = true;
+	}, onProgress, onError);
 
 	var geometry   = new THREE.SphereGeometry(0.5, 32, 32)
 	var material  = new THREE.MeshPhongMaterial()
@@ -62,21 +73,24 @@ function init()
 			var pos = latLongToVector3(lat, lon, 0.5, 0)
 
 			var geometry = new THREE.SphereGeometry(0.02,32,32);
-			var material = new THREE.MeshBasicMaterial( { color: 0xFA2A2A } );
-			var cube = new THREE.Mesh( geometry, material );
-			cube.position.x = pos.x;
-			cube.position.y = pos.y;
-			cube.position.z = pos.z;
+			var material = new THREE.MeshLambertMaterial( { color: 0xE61E17 , ambient: 0x909090} );
+			material.transparent = true;
+			material.opacity = 0.8;
+			var pin = new THREE.Mesh( geometry, material );
+			pin.position.x = pos.x;
+			pin.position.y = pos.y;
+			pin.position.z = pos.z;
 
-			earthMesh.add(cube);
+			pin.name = value.link;
+
+			objects.push(pin);
+
+			earthMesh.add(pin);
 		});
+
+		console.log(objects)
 	});
-/*
-	// 34.909568, 38.991521
-	// 45.926093, 4.832203
 
-
-*/
 	// Rendering
 	renderer = new THREE.WebGLRenderer({alpha:true});
 	renderer.setClearColor( 0xffffff, 1);
@@ -101,57 +115,73 @@ function onWindowResize()
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
 
-	renderer.setSize( window.innerWidth / 2, window.innerHeight / 2 );
+	renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
 }
 
 
 document.addEventListener('mousemove', function(event)
 {
 	if(mouse.isClicked)
+		{
+			mouse.x	= (event.clientX / window.innerWidth ) - 0.5
+			mouse.y	= (event.clientY / window.innerHeight) - 0.5
+		}
+	}, false)
+
+	document.addEventListener('mousedown', function(event)
 	{
-		mouse.x	= (event.clientX / window.innerWidth ) - 0.5
-		mouse.y	= (event.clientY / window.innerHeight) - 0.5
-	}
-}, false)
+		mouse.isClicked = true;
+		//console.log(objects)
+		var projector = new THREE.Projector();
+		var mouse3D = new THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   //x
+		-( event.clientY / window.innerHeight ) * 2 + 1,  //y
+		0.5 );                                            //z
+		var raycaster = projector.pickingRay( mouse3D.clone(), camera );
+		// Intercept the position of the click
+		var intersects = raycaster.intersectObjects( objects );
 
-document.addEventListener('mousedown', function(event)
-{
-	mouse.isClicked = true;
-})
+		if ( intersects.length > 0 ) {
+			var object = intersects[ 0 ].object
+			object.onclick = window.open(object.name)
+		}
 
-document.addEventListener('mouseup', function(event)
-{
-	mouse.isClicked = false;
-	mouse.x = 0;
-	mouse.y = 0;
-})
+	})
 
-function animate()
-{
-	requestAnimationFrame( animate );
-	render();
-}
-
-function render()
-{
-	if(!( (mouse.y>0 && earthMesh.rotation.x>1) || (mouse.y<0 && earthMesh.rotation.x<-1) ) )
+	document.addEventListener('mouseup', function(event)
 	{
-		earthMesh.rotation.x += mouse.y/10
+		mouse.isClicked = false;
+		mouse.x = 0;
+		mouse.y = 0;
+	})
+
+	function animate()
+	{
+		requestAnimationFrame( animate );
+
+		render();
 	}
-	earthMesh.rotation.y += mouse.x/5
 
-	camera.lookAt( scene.position )
+	function render()
+	{
+		if(!( (mouse.y>0 && earthMesh.rotation.x>1) || (mouse.y<0 && earthMesh.rotation.x<-1) ) )
+			{
+				earthMesh.rotation.x += mouse.y/10
+			}
+			earthMesh.rotation.y += mouse.x/5
 
-	renderer.render( scene, camera );
-}
+			camera.lookAt( scene.position )
 
-function latLongToVector3(lat, lon, radius, heigth) {
-        var phi = (lat)*Math.PI/180;
-        var theta = (lon-180)*Math.PI/180;
+			renderer.render( scene, camera );
+		}
 
-        var x = -(radius+heigth) * Math.cos(phi) * Math.cos(theta);
-        var y = (radius+heigth) * Math.sin(phi);
-        var z = (radius+heigth) * Math.cos(phi) * Math.sin(theta);
+		function latLongToVector3(lat, lon, radius, heigth) {
+			var phi = (lat)*Math.PI/180;
+			var theta = (lon-180)*Math.PI/180;
 
-        return new THREE.Vector3(x,y,z);
-}
+			var x = -(radius+heigth) * Math.cos(phi) * Math.cos(theta);
+			var y = (radius+heigth) * Math.sin(phi);
+			var z = (radius+heigth) * Math.cos(phi) * Math.sin(theta);
+
+			return new THREE.Vector3(x,y,z);
+		}
+		

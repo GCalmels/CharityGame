@@ -1,0 +1,31 @@
+#overlay
+{
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: transparent;
+  display: none;
+  z-index: 3;
+  background-repeat: no-repeat;
+
+  -moz-animation-duration: 3s;
+  -moz-animation-delay: 0s;
+  -moz-animation-iteration-count: 1;
+
+  -webkit-animation-duration: 3s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+
+  -ms-animation-duration: 3s;
+  -ms-animation-delay: 0s;
+  -ms-animation-iteration-count: 1;
+
+  -o-animation-duration: 3s;
+  -o-animation-delay: 0s;
+  -o-animation-iteration-count: 1;
+}
