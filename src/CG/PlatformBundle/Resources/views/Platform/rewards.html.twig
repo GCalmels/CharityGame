@@ -1,0 +1,43 @@
+{% trans_default_domain 'CGPlatformBundle' %}
+
+{% extends "CGPlatformBundle:Layout:layout.html.twig" %}
+
+{% block title %}{{ parent() }} | {{ 'cg.rewards.page_header'|trans }} {% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/cgplatform/css/home.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Récompense Jedi</h3>
+  </div>
+  <div class="panel-body">
+    Pour devenir un jedi, il faudra entièrement controller la Force, pour cela, il faudra avoir 10 000 points. 
+    Pour gagner des points, rien de plus simple, faire partager ce site, aider les associations humanitaires et trouver les codes cachés
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Récompense Master</h3>
+  </div>
+  <div class="panel-body">
+    Pour devenir un master, il faudra trouver la bonne ramification sur GitHub et avoir 1 000 points.
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Récompense Padawan</h3>
+  </div>
+  <div class="panel-body">
+    C'est la première récompense, la plus facile, il faut faire un geste humanitaire. Faites un don!
+  </div>
+</div>
+
+{% endblock %}
+

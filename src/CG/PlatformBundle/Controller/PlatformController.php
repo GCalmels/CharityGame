@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use CG\PlatformBundle\Form\EventType;
 use CG\PlatformBundle\Entity\Event;
+use CG\UserBundle\Entity\User;
 
 class PlatformController extends Controller
 {
@@ -73,7 +74,31 @@ class PlatformController extends Controller
     {
     	// Les évènements avec le plus de dons
     	$repository = $this->getDoctrine()->getRepository('CGPlatformBundle:Event');
-        $events = $repository->findAllByDonations();
+        $m_events = $repository->findAll();
+
+        // Les évènements avec le moins de dons
+        $l_events = $repository->findAll();
+
+        // Les utilisateurs ayant fait le plus de dons
+    	$repository = $this->getDoctrine()->getRepository('CGUserBundle:User');
+        //$donors = $repository->findOrderByDonations();
+
+    	$donors = $repository->findAll();
+        // Les utilisateurs ayant le plus de points
+        $users = $repository->findOrderByPoints();
+
+
+        return $this->render('CGPlatformBundle:Ratings:list.html.twig', array(
+        		'most_donated_events' => $m_events, 
+        		'best_users' => $users,
+        		'best_donors' => $donors,
+        		'less_donated_events' => $l_events));
+    }
+
+
+    public function showRewardsAction()
+    {
+    	return $this->render('CGPlatformBundle:Platform:rewards.html.twig');
     }
 
 }

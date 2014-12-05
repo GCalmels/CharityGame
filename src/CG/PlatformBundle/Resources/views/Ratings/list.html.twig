@@ -1,0 +1,79 @@
+{% trans_default_domain 'CGPlatformBundle' %}
+
+{% extends "CGPlatformBundle:Layout:layout.html.twig" %}
+
+{% block title %}
+        {{ parent() }} | {{ 'ratings.list.page_header'|trans }} 
+{% endblock %}
+
+{% block body %}
+<div>
+    <ul>
+    	<div class="row">
+            <h2>{{ 'ratings.list.most_donated'|trans }}</h2>
+            {% for event in most_donated_events %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4>{{ event.name }}</h4>
+                        <p>{{ 'ratings.list.event.sum'|trans }}: {{ event.getSum }}</p>
+                        <p>{{ 'ratings.list.event.donor'|trans }}: {{ event.getCount }}</p>
+                        <p>{{ 'ratings.list.event.avg'|trans }}: {{ event.getAvg }}</p> 
+                    </div>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            <h2>{{ 'ratings.list.best_donors'|trans }}</h2>
+            {% for user in best_donors %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4>{{ user.username }}</h4>
+                        <p>{{ 'ratings.list.user.sum'|trans }}: {{ user.getSum }}</p>
+                        <p>{{ 'ratings.list.user.count_events'|trans }}: {{ user.getCount }}</p>
+                        <p>{{ 'ratings.list.user.avg'|trans }}: {{ user.getAvg }}</p> 
+                    </div>
+                </div>
+            </div> 
+             {% endfor %}
+        </div>
+
+        <div class="row">
+            <h2>{{ 'ratings.list.best_users'|trans }}</h2>
+            {% for user in best_users %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4>{{ user.username }}</h4>
+                        <p>{{ 'ratings.list.user.points'|trans }}: {{ user.points }}</p>
+                    </div>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            <h2>{{ 'ratings.list.less_donated'|trans }}</h2>
+            {% for event in less_donated_events %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h4>{{ event.name }}</h4>
+                        <p>{{ 'ratings.list.event.sum'|trans }}: {{ event.getSum }}</p>
+                        <p>{{ 'ratings.list.event.donor'|trans }}: {{ event.getCount }}</p>
+                        <p>{{ 'ratings.list.event.avg'|trans }}: {{ event.getAvg }}</p> 
+                    </div>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+    </ul>
+</div>
+{% endblock body %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock javascripts %}

@@ -12,4 +12,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+	public function findOrderByPoints()
+	{
+		return $this->getEntityManager()
+			->createQuery(
+				'SELECT user FROM CGUserBundle:User user ORDER BY user.points DESC'
+			)
+			->setMaxResults(3)
+			->getResult();
+	}
+
+	public function findOrderByDonations()
+	{
+		return $this->getEntityManager()
+				->createQuery(
+					'SELECT user, SUM(donation.amount) AS money  FROM CGUserBundle:User user, CGPlatformBundle:Donation donation WHERE donation.user = user GROUP BY user ORDER BY money DESC'
+			)
+			->setMaxResults(3)
+			->getResult();
+	}
 }

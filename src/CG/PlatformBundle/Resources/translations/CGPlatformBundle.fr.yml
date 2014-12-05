@@ -3,6 +3,8 @@ cg:
     page_header: Accueil
     presentation: >
         Plate-forme Humanitaire Charity Game !
+    rewards:
+        page_header: Récompenses
 user:
     profile:
         modify_button: Modifier
@@ -32,4 +34,20 @@ event:
 menu:
     events: Les évènements
     ratings: Classements
-
+    rewards: Récompenses
+ratings:
+    list:
+        page_header: Classements
+        event:
+            sum: Fonds récoltés
+            avg: Moyenne par donneur
+            donor: Donateurs
+        most_donated: Le plus de dons
+        best_donors: Les plus donateurs
+        less_donated: Ces évènements ont besoin de votre aide
+        best_users: Les utilisateurs les plus actifs
+        user:
+            points: Nombre de points
+            sum: Argent donnée
+            count_events: Nombre de dons
+            avg: Montant moyen par donation

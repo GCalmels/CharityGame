@@ -13,3 +13,6 @@ cg_platform_event_view:
 cg_platform_ratings:
     path:     /ratings
     defaults: { _controller: CGPlatformBundle:Platform:showRatings }
+cg_platform_rewards:
+    path:     /rewards
+    defaults: { _controller: CGPlatformBundle:Platform:showRewards }

@@ -138,4 +138,50 @@ class User extends BaseUser
     {
         return $this->donations;
     }
+
+    /**
+     * Get the sum of donations
+     *
+     * @return integer 
+     */
+    public function getSum()
+    {
+        $sum = 0;
+        foreach ($this->donations as $donation)
+        {
+            $sum += $donation->getAmount();
+        }
+        return $sum;
+    }
+
+    /**
+     * Get the count of donations
+     *
+     * @return integer 
+     */
+    public function getCount()
+    {
+        $count = 0;
+        foreach ($this->donations as $donation)
+        {
+            $count += 1;
+        }
+        return $count;
+    }
+
+    /**
+     * Get the average of donations
+     *
+     * @return float 
+     */
+    public function getAvg()
+    {
+        if ($this->getCount() > 0)
+        {
+            return $this->getSum() / $this->getCount();
+        } else {
+            return 0.0;
+        }
+    }
+
 }
