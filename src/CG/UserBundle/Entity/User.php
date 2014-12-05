@@ -54,7 +54,7 @@ class User extends BaseUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -64,7 +64,7 @@ class User extends BaseUser
     /**
      * Get points
      *
-     * @return integer 
+     * @return integer
      */
     public function getPoints()
     {
@@ -99,7 +99,7 @@ class User extends BaseUser
     /**
      * Get group
      *
-     * @return \CG\UserBundle\Entity\UserGroup 
+     * @return \CG\UserBundle\Entity\UserGroup
      */
     public function getGroup()
     {
@@ -109,10 +109,10 @@ class User extends BaseUser
     /**
      * Add donations
      *
-     * @param \CG\UserBundle\Entity\Donation $donations
+     * @param \CG\PlatformBundle\Entity\Donation $donations
      * @return User
      */
-    public function addDonation(\CG\UserBundle\Entity\Donation $donations)
+    public function addDonation(\CG\PlatformBundle\Entity\Donation $donations)
     {
         $this->donations[] = $donations;
 
@@ -122,9 +122,9 @@ class User extends BaseUser
     /**
      * Remove donations
      *
-     * @param \CG\UserBundle\Entity\Donation $donations
+     * @param \CG\PlatformBundle\Entity\Donation $donations
      */
-    public function removeDonation(\CG\UserBundle\Entity\Donation $donations)
+    public function removeDonation(\CG\PlatformBundle\Entity\Donation $donations)
     {
         $this->donations->removeElement($donations);
     }
@@ -132,7 +132,7 @@ class User extends BaseUser
     /**
      * Get donations
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getDonations()
     {
@@ -142,7 +142,7 @@ class User extends BaseUser
     /**
      * Get the sum of donations
      *
-     * @return integer 
+     * @return integer
      */
     public function getSum()
     {
@@ -157,7 +157,7 @@ class User extends BaseUser
     /**
      * Get the count of donations
      *
-     * @return integer 
+     * @return integer
      */
     public function getCount()
     {
@@ -172,7 +172,7 @@ class User extends BaseUser
     /**
      * Get the average of donations
      *
-     * @return float 
+     * @return float
      */
     public function getAvg()
     {
