@@ -38,9 +38,33 @@ function init()
 	scene.add( light )
 
 	// EarthMesh
+	var manager = new THREE.LoadingManager();
+	var texture = new THREE.Texture();
+
+	var onProgress = function ( xhr ) {
+		console.log('On Progress')
+	};
+
+	var onError = function ( xhr ) {
+		console.log('An error has occured')
+		console.log(xhr);
+	};
+
+	var loader = new THREE.ImageLoader( manager );
+	loader.load( '../img/earthTexture.jpg', function ( image ) {
+		texture.image = image;
+		texture.needsUpdate = true;
+		console.log('image loaded successfully')
+	}, onProgress, onError);
+
+
+
+
+
+
 	var geometry   = new THREE.SphereGeometry(0.5, 32, 32)
 	var material  = new THREE.MeshPhongMaterial()
-	material.map = THREE.ImageUtils.loadTexture('earthmap1k.jpg')
+	material.map = texture
 	earthMesh = new THREE.Mesh(geometry, material)
 
 	scene.add(earthMesh)
