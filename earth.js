@@ -41,11 +41,20 @@ function init()
 	var manager = new THREE.LoadingManager();
 	var texture = new THREE.Texture();
 
+	var onProgress = function ( xhr ) {
+		console.log('On Progress')
+	};
+		
+	var onError = function ( xhr ) {
+		console.log('An error has occured')
+	};
+
 	var loader = new THREE.ImageLoader( manager );
-		loader.load( 'earthTexture.jpg', function ( image ) {
-			texture.image = image;
-			texture.needsUpdate = true;
-		} );
+	loader.load( 'earthTexture.jpg', function ( image ) {
+		texture.image = image;
+		texture.needsUpdate = true;
+		console.log('TA MERE LA PUTE')
+	}, onProgress, onError);
 
 	var geometry   = new THREE.SphereGeometry(0.5, 32, 32)
 	var material  = new THREE.MeshPhongMaterial()
