@@ -69,4 +69,11 @@ class PlatformController extends Controller
         return $this->render('CGPlatformBundle:Event:list.html.twig', array('events' => $events));
     }
 
+    public function showRatingsAction()
+    {
+    	// Les évènements avec le plus de dons
+    	$repository = $this->getDoctrine()->getRepository('CGPlatformBundle:Event');
+        $events = $repository->findAllByDonations();
+    }
+
 }

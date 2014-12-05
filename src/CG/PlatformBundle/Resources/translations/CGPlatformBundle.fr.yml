@@ -26,4 +26,7 @@ event:
         page_header: Évènement
     list:
         page_header: Les évènements
+menu:
+    events: Les évènements
+    ratings: Classements
 

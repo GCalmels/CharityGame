@@ -15,7 +15,8 @@
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li>
-					<a href="{{ path('cg_platform_events_list')}}">Les évènements</a>
+					<a href="{{ path('cg_platform_events_list')}}">{{ 'menu.events'|trans({}, 'CGPlatformBundle') }}</a>
+					<a href="{{ path('cg_platform_ratings')}}">{{ 'menu.ratings'|trans({}, 'CGPlatformBundle') }}</a>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

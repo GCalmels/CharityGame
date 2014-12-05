@@ -16,5 +16,11 @@ class EventRepository extends EntityRepository
     {
         return $this->findBy(array('enabled' => $enabled), array('id' => 'DESC'));
     }
+
+    public function findAllByDonations()
+    {
+    	
+    	return $this->findBy(array(), array)
+    }
 	
 }
