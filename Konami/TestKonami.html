@@ -1,0 +1,68 @@
+<html>
+   <head>
+    <style>
+  div {
+    position: absolute;
+    background-color: #abc;
+    left: 50px;
+    width: 90px;
+    height: 90px;
+    margin: 5px;
+  }
+  </style>
+   </head>
+   <body>
+
+<img id="image" src="bee.jpg" style="">
+<button id="submit">Animate</button>
+
+<div class="block" class="clear">
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$( "#submit" ).click(function() {
+    $( ".block" ).animate({ "left": "+=50px" }, "slow" );
+    });
+
+
+
+
+if ( window.addEventListener )
+    {
+        var kkeys = [], konami = ["caae34a5e81031268bcdaf6f1d8c04d37b7f2c349afb705b575966f63e2ebf0fd910c3b05160ba087ab7af35d40b7c719c53cd8b947c96111f64105fd45cc1b2","caae34a5e81031268bcdaf6f1d8c04d37b7f2c349afb705b575966f63e2ebf0fd910c3b05160ba087ab7af35d40b7c719c53cd8b947c96111f64105fd45cc1b2"];
+        window.addEventListener("keydown", function(e){ 
+            var length = kkeys.length;
+            var strKeyCode = e.keyCode.toString();
+            var shaObj = new jsSHA(strKeyCode, "TEXT");
+            var hash = shaObj.getHash("SHA-512", "HEX");
+
+            //alert(strKeyCode);
+            if (konami[length] == hash )
+            {
+                kkeys.push(hash);
+                length++;
+            }
+            else
+            {
+                kkeys = [];
+            }
+
+            if (length == konami.length)
+            {
+                alert('Gagné');
+                kkeys = [];
+            }
+        },
+        true);
+    }
+
+    </script>
+   
+    <script type="text/javascript" src="sha.js">
+    </script>
+
+    </body>
+    </html>
