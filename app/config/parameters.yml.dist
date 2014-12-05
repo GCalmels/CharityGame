@@ -1,11 +1,11 @@
 # This file is a "template" of what your parameters.yml file should look like
 parameters:
     database_driver:   pdo_pgsql
-    database_host:     127.0.0.1
-    database_port:     ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    database_host:     ec2-54-204-39-187.compute-1.amazonaws.com
+    database_port:     5432
+    database_name:     d50q7hgnnjdkq5
+    database_user:     jtcfulijgxlydl
+    database_password: 3iNaPYSUtMbpjYCeL2zOiS8ACw
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
 
