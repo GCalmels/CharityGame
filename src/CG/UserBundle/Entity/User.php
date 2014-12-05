@@ -30,6 +30,13 @@ class User extends BaseUser
     protected $group;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="points", type="integer")
+     */
+    private $points;
+
+    /**
      *
      * @ORM\OneToMany(targetEntity="CG\PlatformBundle\Entity\Donation", mappedBy="user")
      */
@@ -52,6 +59,28 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get points
+     *
+     * @return integer 
+     */
+    public function getPoints()
+    {
+        return $this->points;
+    }
+
+    /**
+     * Set points
+     *
+     * @param int $points
+     */
+    public function setPoints($points)
+    {
+        $this->points = $points;
+
+        return $this;
     }
 
     /**

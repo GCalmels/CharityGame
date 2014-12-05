@@ -12,4 +12,9 @@ use Doctrine\ORM\EntityRepository;
  */
 class EventRepository extends EntityRepository
 {
+	public function findByEnabledWithOrder($enabled)
+    {
+        return $this->findBy(array('enabled' => $enabled), array('id' => 'DESC'));
+    }
+	
 }

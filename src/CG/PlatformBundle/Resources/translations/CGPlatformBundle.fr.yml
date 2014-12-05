@@ -7,3 +7,23 @@ user:
     profile:
         modify_button: Modifier
         delete_button: Supprimer
+event:
+    flashbag:
+        created: L'évènement a bien été créé
+    exception:
+        not_found: L'évènement n'existe pas
+    form:
+        page_header: Nouvel évènement
+        submit: Enregistrer
+    name: Nom de l'évènement
+    location: Localisation
+    short_description: Courte description
+    long_description: Longue description
+    link: Lien URL
+    worldwide_day: Jour spécial de l'évènement
+    date: Jour de l'évènement
+    view:
+        page_header: Évènement
+    list:
+        page_header: Les évènements
+

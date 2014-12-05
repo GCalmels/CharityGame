@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Event
  *
- * @ORM\Table()
+ * @ORM\Table(name="events")
  * @ORM\Entity(repositoryClass="CG\PlatformBundle\Entity\EventRepository")
  */
 class Event
@@ -32,7 +32,7 @@ class Event
     /**
      * @var string
      *
-     * @ORM\Column(name="location", type="string", length=255)
+     * @ORM\Column(name="location", type="string", length=255, nullable=false)
      */
     private $location;
 
@@ -53,7 +53,7 @@ class Event
     /**
      * @var string
      *
-     * @ORM\Column(name="link", type="string", length=255)
+     * @ORM\Column(name="link", type="string", length=255, nullable=true)
      */
     private $link;
 
@@ -85,7 +85,7 @@ class Event
     protected $donations;
 
     /**
-     * @ORM\ManyToOne(targetEntity="DonationKind", inversedBy="events")
+     * @ORM\ManyToOne(targetEntity="DonationKind", cascade={"persist", "remove"}, inversedBy="events")
      * @ORM\JoinColumn(name="donation_kind_id", referencedColumnName="id")
      */
     protected $donationKind;

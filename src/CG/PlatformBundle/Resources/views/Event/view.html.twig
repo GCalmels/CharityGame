@@ -1,0 +1,31 @@
+{% trans_default_domain 'CGPlatformBundle' %}
+
+{% extends "CGPlatformBundle:Layout:layout.html.twig" %}
+
+{% block title %}{{ parent() }} | {{ 'event.view.page_header'|trans }} {% endblock %}
+
+{% block body %}
+        
+    <div class="col-md-12">
+        <p>{{ 'event.name'|trans }}: {{ event.name }}</p>
+        <p>{{ 'event.long_description'|trans }}: {{ event.longDescription }}</p>
+        <p>{{ 'event.location'|trans }}: {{ event.location }}</p>
+        <p>{{ 'event.link'|trans }}: {{ event.link|date("d/m/Y") }}</p>
+        <p>{{ 'event.worldwide_day'|trans }}: {{ event.worldwideDay|date("d/m/Y") }}</p>
+        <p>{{ 'event.date'|trans }}: {{ event.date|date("d/m/Y") }}</p>    
+    
+        {% if is_granted("edit_delete", event) %}    
+            
+        {% else %}
+
+        {% endif %}
+    
+    </div>
+
+{% endblock body %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+
+{% endblock javascripts %}

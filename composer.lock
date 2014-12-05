@@ -1077,17 +1077,17 @@
         },
         {
             "name": "jms/di-extra-bundle",
-            "version": "1.5.0",
+            "version": "1.4.0",
             "target-dir": "JMS/DiExtraBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSDiExtraBundle.git",
-                "reference": "4a0db1a5469940f83cc7d9c156224469ec8b6c01"
+                "reference": "7fffdb6c96fb922a131af06d773e1e6c5301d070"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSDiExtraBundle/zipball/4a0db1a5469940f83cc7d9c156224469ec8b6c01",
-                "reference": "4a0db1a5469940f83cc7d9c156224469ec8b6c01",
+                "url": "https://api.github.com/repos/schmittjoh/JMSDiExtraBundle/zipball/7fffdb6c96fb922a131af06d773e1e6c5301d070",
+                "reference": "7fffdb6c96fb922a131af06d773e1e6c5301d070",
                 "shasum": ""
             },
             "require": {
@@ -1114,7 +1114,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.3-dev"
                 }
             },
             "autoload": {
@@ -1128,8 +1128,10 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com"
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com",
+                    "homepage": "https://github.com/schmittjoh",
+                    "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
             "description": "Allows to configure dependency injection using annotations",
@@ -1138,7 +1140,7 @@
                 "annotations",
                 "dependency injection"
             ],
-            "time": "2014-11-24 08:56:26"
+            "time": "2013-06-08 13:13:40"
         },
         {
             "name": "jms/metadata",

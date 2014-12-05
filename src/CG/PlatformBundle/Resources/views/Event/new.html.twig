@@ -1,0 +1,123 @@
+{% trans_default_domain 'CGPlatformBundle' %}
+
+{% extends "CGPlatformBundle:Layout:layout.html.twig" %}
+
+{% block title %}{{ parent() }} | {{ 'event.form.page_header'|trans }} {% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<div class="well">
+    
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+      {{ form_label(form.name, 'event.name'|trans, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.name) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      {# Génération du label description. #}
+      {{ form_label(form.shortDescription, 'event.short_description'|trans, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.shortDescription) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.shortDescription, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      {# Génération du label description. #}
+      {{ form_label(form.longDescription, 'event.long_description'|trans, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.longDescription) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.longDescription, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+      
+    <div class="form-group">
+      {{ form_label(form.location, 'event.location'|trans, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.location) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.location, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+      
+      <div class="form-group">
+      {{ form_label(form.link, 'event.link'|trans, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.link) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.link, {'attr': {'class': 'form-control' }}) }}
+      </div>
+    </div>
+      
+      <div class="form-group">
+      {{ form_label(form.worldwideDay, 'event.worldwide_day'|trans, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.worldwideDay) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.worldwideDay, {'attr': {'class': ''}}) }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form_label(form.date, 'event.date'|trans, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.date) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.date, {'attr': {'class': ''}}) }}
+      </div>
+    </div>
+      
+      <div class="form-group">
+      {{ form_label(form.donationKind.description, 'event.donation_kind.description'|trans, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.donationKind.description) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.donationKind.description, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+      
+      <div class="form-group">
+      {{ form_label(form.donationKind.gain, 'event.donation_kind.gain'|trans, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+      {{ form_errors(form.donationKind.gain) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.donationKind.gain, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+      
+
+  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  {{ form_widget(form.Enregistrer, {'attr': {'class': 'btn btn-primary'},  'label': 'event.form.submit'|trans }) }}
+
+  {# Génération automatique des champs pas encore écrits.
+     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+     et tous les champs cachés (type « hidden »). #}
+  {{ form_rest(form) }}
+  
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+    
+</div>
+    
+{% endblock body %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+  <script src="{{ asset('bundles/rmoplatform/js/classified_form_validator.js') }}"></script>
+
+  {# Script pour afficher le bouton choisir l'image #}
+  <script src="{{ asset('bundles/rmoplatform/js/browse_button_event.js') }}"></script>
+
+{% endblock javascripts %}
