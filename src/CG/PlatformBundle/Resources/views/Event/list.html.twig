@@ -12,11 +12,15 @@
         {% for event in events %}
         	<div class="row jumbotron">
 
-                <div class="col-md-12">
+                <div class="col-md-8">
                     <p>{{ 'event.name'|trans }}: {{ event.name }}</p>
                     <p>{{ 'event.short_description'|trans }}: {{ event.shortDescription }}</p>
                     <p>{{ 'event.location'|trans }}: {{ event.location }}</p>
                     <p>{{ 'event.date'|trans }}: {{ event.date|date("d/m/Y") }}</p>    
+                </div>
+                <div class="col-md-4">
+                    <a href="{{ path('cg_platform_event_view', {'id': event.id})}}"class="btn btn-default">{{ 'event.button.show'|trans }}</a>
+                    <a class="btn btn-default">{{ 'event.button.donate'|trans }}</a>
                 </div>
         	</div>
         {% endfor %}

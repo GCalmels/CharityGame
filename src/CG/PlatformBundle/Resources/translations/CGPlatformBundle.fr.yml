@@ -26,6 +26,9 @@ event:
         page_header: Évènement
     list:
         page_header: Les évènements
+    button:
+        donate: Faire un don
+        show: Voir l'évènement
 menu:
     events: Les évènements
     ratings: Classements
