@@ -75,7 +75,10 @@ $(document).ready(function() {
                 displayOverlay();
                 startAnimation('fadeInRight');
                 $('#overlay').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-                function(){$('#overlay').addClass('animated fadeOutLeft');});
+                function(){
+                  $('#overlay').addClass('animated fadeOutLeft');
+                  
+                });
 
                 kkeys = [];
               }
