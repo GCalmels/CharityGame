@@ -7,6 +7,8 @@
 {% block stylesheets %}
 	{{ parent() }}
 	<link rel="stylesheet" href="{{ asset('bundles/cgplatform/css/home.css') }}">
+	<link rel="stylesheet" href="{{ asset('bundles/cgplatform/css/home_overlay.css') }}">
+	<link rel="stylesheet" href="{{ asset('bundles/cgplatform/css/animate.min.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -14,6 +16,7 @@
 	{{ 'cg.presentation'|trans }}
 </div>
 
+	<div id="overlay"></div>
 
 	<div id="canvas_container" class="col-md-8 col-md-offset-2">
 
@@ -28,7 +31,10 @@
 {{ parent() }}
 <script src="{{ asset('bundles/cgplatform/js/load_canvas_content.js') }}"></script>
 <script src="{{ asset('bundles/cgplatform/js/d3.min.js') }}"></script>
+<script src="{{ asset('bundles/cgplatform/js/ion.sound.min.js') }}"></script>
 <script src="{{ asset('bundles/cgplatform/js/three.min.js') }}"></script>
 <script src="{{ asset('bundles/cgplatform/js/earth.js') }}"></script>
+<script src="{{ asset('bundles/cgplatform/js/sha.js') }}"></script>
+<script src="{{ asset('bundles/cgplatform/js/load_konamis.js') }}"></script>
 
 {% endblock javascripts %}
