@@ -53,7 +53,6 @@ function init()
 	loader.load( 'earthTexture.jpg', function ( image ) {
 		texture.image = image;
 		texture.needsUpdate = true;
-		console.log('TA MERE LA PUTE')
 	}, onProgress, onError);
 
 	var geometry   = new THREE.SphereGeometry(0.5, 32, 32)
@@ -72,20 +71,15 @@ function init()
 
 			var geometry = new THREE.SphereGeometry(0.02,32,32);
 			var material = new THREE.MeshBasicMaterial( { color: 0xFA2A2A } );
-			var cube = new THREE.Mesh( geometry, material );
-			cube.position.x = pos.x;
-			cube.position.y = pos.y;
-			cube.position.z = pos.z;
+			var pin = new THREE.Mesh( geometry, material );
+			pin.position.x = pos.x;
+			pin.position.y = pos.y;
+			pin.position.z = pos.z;
 
-			earthMesh.add(cube);
+			earthMesh.add(pin);
 		});
 	});
-/*
-	// 34.909568, 38.991521
-	// 45.926093, 4.832203
 
-
-*/
 	// Rendering
 	renderer = new THREE.WebGLRenderer({alpha:true});
 	renderer.setClearColor( 0xeeeeee, 1);
