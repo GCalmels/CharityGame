@@ -9,7 +9,9 @@ var windowHalfY = window.innerHeight / 2;
 var earthMesh;
 
 // Mouse object
-var mouse = {x : 0, y : 0, isClicked: false};
+var mouse = {x : -0.01, y : 0, isClicked: false};
+
+var objects = [];
 		
 init();
 animate();
@@ -17,7 +19,7 @@ animate();
 
 function init() 
 {
-	container = document.getElementById("earth")
+	container = document.getElementById("canvas_container")
 
 	// Camera
 	camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 1000 );
@@ -70,14 +72,22 @@ function init()
 			var pos = latLongToVector3(lat, lon, 0.5, 0)
 
 			var geometry = new THREE.SphereGeometry(0.02,32,32);
-			var material = new THREE.MeshBasicMaterial( { color: 0xFA2A2A } );
+			var material = new THREE.MeshLambertMaterial( { color: 0xE61E17 , ambient: 0x909090} );
+			material.transparent = true;
+			material.opacity = 0.8;
 			var pin = new THREE.Mesh( geometry, material );
 			pin.position.x = pos.x;
 			pin.position.y = pos.y;
 			pin.position.z = pos.z;
 
+			pin.name = value.link;
+
+			objects.push(pin);
+
 			earthMesh.add(pin);
 		});
+
+		console.log(objects)
 	});
 
 	// Rendering
@@ -120,6 +130,20 @@ document.addEventListener('mousemove', function(event)
 document.addEventListener('mousedown', function(event)
 {
 	mouse.isClicked = true;
+	//console.log(objects)
+	var projector = new THREE.Projector();
+	var mouse3D = new THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   //x
+                                        -( event.clientY / window.innerHeight ) * 2 + 1,  //y
+                                        0.5 );                                            //z
+    var raycaster = projector.pickingRay( mouse3D.clone(), camera );
+    // Intercept the position of the click
+    var intersects = raycaster.intersectObjects( objects );
+
+     if ( intersects.length > 0 ) {
+        var object = intersects[ 0 ].object
+		object.onclick = window.open(object.name)
+    }
+
 })
 
 document.addEventListener('mouseup', function(event)
@@ -132,6 +156,7 @@ document.addEventListener('mouseup', function(event)
 function animate() 
 {
 	requestAnimationFrame( animate );
+
 	render();
 }
 
