@@ -57,7 +57,7 @@ class Donation
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -80,7 +80,7 @@ class Donation
     /**
      * Get amount
      *
-     * @return float 
+     * @return float
      */
     public function getAmount()
     {
@@ -103,7 +103,7 @@ class Donation
     /**
      * Get currency
      *
-     * @return string 
+     * @return string
      */
     public function getCurrency()
     {
@@ -126,7 +126,7 @@ class Donation
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -136,10 +136,10 @@ class Donation
     /**
      * Set user
      *
-     * @param \CG\PlatformBundle\Entity\User $user
+     * @param \CG\UserBundle\Entity\User $user
      * @return Donation
      */
-    public function setUser(\CG\PlatformBundle\Entity\User $user = null)
+    public function setUser(\CG\UserBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -149,7 +149,7 @@ class Donation
     /**
      * Get user
      *
-     * @return \CG\PlatformBundle\Entity\User 
+     * @return \CG\PlatformBundle\Entity\User
      */
     public function getUser()
     {
@@ -172,7 +172,7 @@ class Donation
     /**
      * Get event
      *
-     * @return \CG\PlatformBundle\Entity\Event 
+     * @return \CG\PlatformBundle\Entity\Event
      */
     public function getEvent()
     {
