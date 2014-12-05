@@ -15,9 +15,10 @@
 </div>
 
 
-	<div class="col-md-8 col-md-offset-2">
-		<canvas id="world_canvas" width="640" height="480"></canvas>
+	<div id="canvas_container">
+
 	</div>
+
 
 
 
@@ -26,4 +27,7 @@
 {% block javascripts %}
 {{ parent() }}
 <script src="{{ asset('bundles/cgplatform/js/load_canvas_content.js') }}"></script>
+<script src="{{ asset('bundles/cgplatform/js/three.min.js') }}"></script>
+<script src="{{ asset('bundles/cgplatform/js/earth.js') }}"></script>
+
 {% endblock javascripts %}
