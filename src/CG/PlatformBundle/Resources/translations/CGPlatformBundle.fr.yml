@@ -24,4 +24,6 @@ event:
     date: Jour de l'évènement
     view:
         page_header: Évènement
+    list:
+        page_header: Les évènements
 

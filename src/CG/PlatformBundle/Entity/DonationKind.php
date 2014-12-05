@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * DonationKind
  *
- * @ORM\Table()
+ * @ORM\Table(name="donation_kinds")
  * @ORM\Entity(repositoryClass="CG\PlatformBundle\Entity\DonationKindRepository")
  */
 class DonationKind

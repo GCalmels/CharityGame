@@ -4,6 +4,9 @@ cg_platform_homepage:
 cg_platform_event_add:
     path:     /new
     defaults: { _controller: CGPlatformBundle:Platform:addEvent }
+cg_platform_events_list:
+    path:     /events
+    defaults: { _controller: CGPlatformBundle:Platform:listEvents }
 cg_platform_event_view:
-    path:     /{id}
+    path:     /event/{id}
     defaults: { _controller: CGPlatformBundle:Platform:showEvent }

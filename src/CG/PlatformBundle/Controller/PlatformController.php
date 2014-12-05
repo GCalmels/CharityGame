@@ -4,6 +4,7 @@ namespace CG\PlatformBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use CG\PlatformBundle\Form\EventType;
 use CG\PlatformBundle\Entity\Event;
 
@@ -12,7 +13,7 @@ class PlatformController extends Controller
     public function homeAction()
     {
     	$repository = $this->getDoctrine()->getRepository('CGPlatformBundle:Event');
-        $events = $repository->findByEnabled(true);
+        $events = $repository->findByEnabledWithOrder(true);
         return $this->render('CGPlatformBundle:Platform:home.html.twig', array('events', $events));
     }
 
@@ -58,6 +59,14 @@ class PlatformController extends Controller
         }
 
         return $this->render('CGPlatformBundle:Event:view.html.twig', array('event' => $event));
+    }
+
+    public function listEventsAction()
+    {
+    	$repository = $this->getDoctrine()->getRepository('CGPlatformBundle:Event');
+        $events = $repository->findByEnabledWithOrder(true);
+
+        return $this->render('CGPlatformBundle:Event:list.html.twig', array('events' => $events));
     }
 
 }

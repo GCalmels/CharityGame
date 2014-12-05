@@ -1,0 +1,29 @@
+{% trans_default_domain 'CGPlatformBundle' %}
+
+{% extends "CGPlatformBundle:Layout:layout.html.twig" %}
+
+{% block title %}
+        {{ parent() }} | {{ 'event.list.page_header'|trans }} 
+{% endblock %}
+
+{% block body %}
+<div>
+    <ul>
+        {% for event in events %}
+        	<div class="row jumbotron">
+
+                <div class="col-md-12">
+                    <p>{{ 'event.name'|trans }}: {{ event.name }}</p>
+                    <p>{{ 'event.short_description'|trans }}: {{ event.shortDescription }}</p>
+                    <p>{{ 'event.location'|trans }}: {{ event.location }}</p>
+                    <p>{{ 'event.date'|trans }}: {{ event.date|date("d/m/Y") }}</p>    
+                </div>
+        	</div>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock body %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock javascripts %}

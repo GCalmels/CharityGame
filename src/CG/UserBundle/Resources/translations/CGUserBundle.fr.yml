@@ -12,6 +12,7 @@ profile:
     show:
         email: Adresse email
         username: Pseudo
+        points: Points 
         edit: Modifier les informations
         change_password: Changer le mot de passe
         change_preferences: Changer les préférences
