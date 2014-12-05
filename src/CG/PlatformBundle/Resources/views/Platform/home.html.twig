@@ -15,7 +15,7 @@
 </div>
 
 
-	<div id="canvas_container">
+	<div id="canvas_container" class="col-md-8 col-md-offset-2">
 
 	</div>
 
@@ -27,6 +27,7 @@
 {% block javascripts %}
 {{ parent() }}
 <script src="{{ asset('bundles/cgplatform/js/load_canvas_content.js') }}"></script>
+<script src="{{ asset('bundles/cgplatform/js/d3.min.js') }}"></script>
 <script src="{{ asset('bundles/cgplatform/js/three.min.js') }}"></script>
 <script src="{{ asset('bundles/cgplatform/js/earth.js') }}"></script>
 
